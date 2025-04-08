@@ -1,13 +1,53 @@
+*{
+  box-sizing: border-box;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh; /*100% chiều cao của màn hình trình duyệt*/
+  display: flex;
+  align-items: center; /*căn giữa các phần tử con theo chiều dọc trục chính*/
+  font-family: Inter, sans-serif;
+  background-color: whitesmoke;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.contacts {
+  display: flex;
+  justify-content: center; /*căn giữa các phần tử con theo chiều ngang trục chính*/
+  flex-wrap: wrap; /*Cho phép các phần tử con tự động xuống hàng nếu không đủ chỗ*/
+  gap: 40px; /*Tạo khoảng cách 40px giữa các phần tử con (cả hàng ngang và dọc)*/
+            /* không cần phải dùng margin riêng lẻ từng phần tử*/
+}
+.contact-card {
+  flex-basis: 225px; /*mỗi card sẽ có kích thước cơ bản là 225px*/
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column; /*Bên trong thẻ sẽ được sắp xếp theo chiều dọc (column) — hình ảnh trên, chữ ở dưới*/
+  padding: 13px;
+  padding-bottom: 20px;
+  background-color: white;
+}
+.contact-card > img {
+  width: 100%;
+  height: auto;
+  align-self: center; /*Căn ảnh vào giữa card theo chiều ngang (nếu không full width thì hiệu ứng rõ hơn)*/
+  border-radius: 5px;
+  object-fit: cover; /*Ảnh sẽ được cắt và zoom vừa khít khung chứa, giữ bố cục đẹp mà không bị méo*/
+}
+.contact-card > h3 {
+  font-weight: 700;
+  font-size: 18px;
+}
+.info-group {
+  display: flex;
+  align-items: center;
+}
+.info-group > img {
+  height: 16px;
+  margin-right: 8px;
+}
+.info-group > p {
+  margin-block: 3px;
+  font-size: 12px;
+  color: #2B283A;
 }
