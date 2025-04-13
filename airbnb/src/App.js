@@ -2,21 +2,31 @@ import React from 'react';
 import Navbar from './components/Narbar';
 import Hero from './components/Hero';
 import Card from './components/Card';
-import logo from "./images/image1.png";
+import data from "./data.js";
+
 
 function App() {
+  const imagePath = "/images/"; // Adjust the path as necessary
+  const cards = data.map(item => {
+    return (
+      <Card 
+        key={item.id}
+        img={imagePath + item.coverImg}
+        rating={item.stats.rating}
+        reviewCount={item.stats.reviewCount}
+        country={item.location}
+        title={item.title}
+        price={item.price}
+      />
+    )
+  })
   return (
     <div className="App">
       <Navbar />
       <Hero />
-      <Card 
-        img={logo}
-        rating="5.0"
-        reviewCount={6}
-        country="USA"
-        title="Life Lessons with Katie Zaferes"
-        price={136}
-      />
+      <section className="card-container">
+      {cards}
+      </section>
     </div>
   );
 }
